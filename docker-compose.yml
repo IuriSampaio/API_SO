@@ -12,17 +12,15 @@ services:
       - mysql
     environment: 
       - MYSQL_DB=project
-      - MYSQL_USER=iuri
+      - MYSQL_USER=root
       - MYSQL_PASSWORD=bcd127
-      - MYSQL_HOST=127.0.0.2
+      - MYSQL_HOST=172.18.0.2
       - MYSQL_PORT=3306
       - MYSQL_ROOT_PASSWORD=bcd127
   mysql:
     image: mysql:5.7
     environment:
       - MYSQL_PORT=3306
-      - MYSQL_HOST=127.0.0.2
       - MYSQL_DB=project
-      - MYSQL_USER=iuri
       - MYSQL_ROOT_PASSWORD=bcd127
       - MYSQL_PASSWORD=bcd127
