@@ -1,8 +1,8 @@
-import { AllowNull, AutoIncrement, Column, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
 
  
  interface PlantaI{
-    id?: number|null;
+    id: number;
     nome:  string;
     daily_ligth:  number;
     agua: number;
@@ -17,26 +17,26 @@ import { AllowNull, AutoIncrement, Column, Model, NotEmpty, NotNull, PrimaryKey,
     
     @PrimaryKey
     @AutoIncrement
-    @Column
-    id?: number|null;
+    @Column(DataType.INTEGER)
+    id: number;
     
     @AllowNull(false)
-    @Column
     @NotEmpty
-    nome!:  string;
+    @Column(DataType.TEXT)
+    nome:  string;
     
     @AllowNull(false)
-    @Column
     @NotEmpty
+    @Column(DataType.FLOAT)
     daily_ligth:  number;
     
     @AllowNull(false)
-    @Column
     @NotEmpty
+    @Column(DataType.FLOAT)
     agua: number;
 
     @AllowNull(false)
-    @Column
     @NotEmpty
+    @Column(DataType.FLOAT)
     peso: number;
  }

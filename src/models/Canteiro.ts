@@ -1,11 +1,11 @@
-import { AllowNull, AutoIncrement, Column, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
 
  
  interface CanteiroI{
-    id?: number|null;
+    id: number;
     nome:  string;
-    daily_ligth:  number;
-    daily_whater: number;
+    daily_ligth:  string;
+    daily_whater: string;
  }
 
  @Table({
@@ -16,21 +16,18 @@ import { AllowNull, AutoIncrement, Column, Model, NotEmpty, NotNull, PrimaryKey,
     
     @PrimaryKey
     @AutoIncrement
-    @Column
-    id?: number|null;
+    @Column(DataType.INTEGER)
+    id: number;
     
     @AllowNull(false)
-    @Column
-    @NotEmpty
-    nome!:  string;
+    @Column(DataType.TEXT) 
+    nome:  string;
     
     @AllowNull(false)
-    @Column
-    @NotEmpty
-    daily_ligth:  number;
+    @Column(DataType.STRING)
+    daily_ligth:  string;
     
     @AllowNull(false)
-    @Column
-    @NotEmpty
-    daily_whater: number;
+    @Column(DataType.STRING)
+    daily_whater: string;
  }

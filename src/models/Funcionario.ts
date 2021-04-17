@@ -1,9 +1,9 @@
-import { AllowNull, AutoIncrement, Column, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
  
  interface FuncionarioI{
-    id?: number|null;
+    id: number;
     nome:  string;
-    idade:  number;
+    age_nasc:  Date;
  }
 
  @Table({
@@ -14,16 +14,16 @@ import { AllowNull, AutoIncrement, Column, Model, NotEmpty, NotNull, PrimaryKey,
     
     @PrimaryKey
     @AutoIncrement
-    @Column
-    id?: number|null;
+    @Column(DataType.INTEGER)
+    id: number;
     
     @AllowNull(false)
-    @Column
     @NotEmpty
-    nome!:  string;
+    @Column(DataType.TEXT)
+    nome:  string;
     
     @AllowNull(false)
-    @Column
     @NotEmpty
-    idade:  number;
+    @Column(DataType.DATE)
+    age_nasc:  Date;
  }
