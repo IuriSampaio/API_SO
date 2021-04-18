@@ -1,4 +1,5 @@
-import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, DataType, HasMany, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import Plantio from "./Plantio";
 
  
  interface CanteiroI{
@@ -30,4 +31,7 @@ import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, P
     @AllowNull(false)
     @Column(DataType.STRING)
     daily_whater: string;
+
+    @HasMany(() => Plantio)
+    plantios: Array<Plantio>;
  }

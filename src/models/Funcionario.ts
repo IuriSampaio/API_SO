@@ -1,4 +1,5 @@
-import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, DataType, HasMany, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import Plantio from "./Plantio";
  
  interface FuncionarioI{
     id: number;
@@ -26,4 +27,7 @@ import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, P
     @NotEmpty
     @Column(DataType.DATE)
     age_nasc:  Date;
+
+   @HasMany(() => Plantio)
+   plantios: Array<Plantio>;
  }

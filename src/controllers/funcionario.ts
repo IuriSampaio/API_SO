@@ -8,14 +8,20 @@ const FuncionarioController = {
     store:async (req:Request, res:Response) => {
         const {nome, age_nasc} = req.body;
 
-        const newFuncionario = await FuncionarioRepository.create({ nome , age_nasc });
+        let age_nasc_formated = age_nasc.slice('/');
+        
+        age_nasc_formated = age_nasc_formated[2]+"-"+age_nasc_formated[1]+"-"+age_nasc_formated[0];
+
+        age_nasc_formated = new Date(age_nasc_formated).toISOString();
+
+        const newFuncionario = await FuncionarioRepository.create({ nome , age_nasc:age_nasc_formated });
     
         res.status(201).send(newFuncionario);
     },
     index:async (req:Request, res:Response) => {
-        const AllFuncionarios = await FuncionarioRepository.findAll()
+        const AllFuncionarios = await FuncionarioRepository.findAll();
     
-        res.status(200).send(AllFuncionarios)
+        res.status(200).send(AllFuncionarios);
     }
 };
 

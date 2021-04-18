@@ -4,6 +4,8 @@ import { Options } from "sequelize";
 import Canteiro from './models/Canteiro';
 import Funcionario from './models/Funcionario';
 import Planta from './models/Planta';
+import Plantio from "./models/Plantio";
+import Colhido from "./models/Colhido";
 
 const options: Options = {
     database:'project',
@@ -17,6 +19,6 @@ const options: Options = {
 
 const database = new Sequelize(options);
 
-database.addModels([Canteiro,Funcionario,Planta]);
+database.addModels([Canteiro,Funcionario,Planta,Plantio,Colhido]);
 
 export default database;

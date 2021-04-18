@@ -1,4 +1,5 @@
-import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, DataType, HasMany, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import Plantio from "./Plantio";
 
  
  interface PlantaI{
@@ -39,4 +40,8 @@ import { AllowNull, AutoIncrement, Column, DataType, Model, NotEmpty, NotNull, P
     @NotEmpty
     @Column(DataType.FLOAT)
     peso: number;
- }
+ 
+   @HasMany(() => Plantio)
+   plantios: Array<Plantio>;
+
+}
