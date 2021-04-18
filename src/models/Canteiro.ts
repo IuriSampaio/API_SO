@@ -1,4 +1,5 @@
 import { AllowNull, AutoIncrement, Column, DataType, HasMany, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import Colhido from "./Colhido";
 import Plantio from "./Plantio";
 
  
@@ -34,4 +35,8 @@ import Plantio from "./Plantio";
 
     @HasMany(() => Plantio)
     plantios: Array<Plantio>;
- }
+
+    @HasMany(()=> Colhido)
+    colheita:Array<Colhido>;
+}
+

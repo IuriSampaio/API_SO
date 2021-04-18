@@ -1,4 +1,5 @@
-import { AllowNull, AutoIncrement, Column, DataType, HasMany, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, DataType, HasMany, HasOne, Model, NotEmpty, NotNull, PrimaryKey, Table } from "sequelize-typescript";
+import Colhido from "./Colhido";
 import Plantio from "./Plantio";
 
  
@@ -41,7 +42,9 @@ import Plantio from "./Plantio";
     @Column(DataType.FLOAT)
     peso: number;
  
-   @HasMany(() => Plantio)
-   plantios: Array<Plantio>;
-
+    @HasMany(() => Plantio)
+    plantios: Array<Plantio>;
+ 
+    @HasOne(()=> Colhido)
+    colheita:Colhido;
 }
