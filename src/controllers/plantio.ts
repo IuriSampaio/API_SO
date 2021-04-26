@@ -16,9 +16,27 @@ const PlantioController = {
     store:async (req:Request,res:Response) => {
         const {data,sementes,planta_id, funcionario_id, canteiro_id} = req.body;
 
-        let data_formated = data.slice('/');
+        let data_formated = data;
         
-        data_formated = data_formated[2]+"-"+data_formated[1]+"-"+data_formated[0];
+        if( data && data.indexOf('/') !== -1){
+
+            data_formated = data.split('/').toString()
+            
+            data_formated = data_formated[2]+"-"+data_formated[1]+"-"+data_formated[0];
+
+        }
+
+        
+        try {
+
+            data_formated = new Date(data).toISOString();
+            
+        } catch (error) {
+
+            return res.status(400).send({error:"Data não formatada corretamente"})
+            
+        }
+
 
         data_formated = new Date(data_formated).toISOString();
 
